@@ -1,4 +1,9 @@
 {
-    "public": "public/pages"
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/pages/$1"
+      }
+    ]
   }
   
