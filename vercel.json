@@ -5,16 +5,17 @@
         "dest": "/pages/$1"
       },
       {
-        "src": "/js/(.*)", 
-        "dest": "/public/js/$1"
-      },
-      {
-        "src": "/scss/(.*)",  
-        "dest": "/public/scss/$1"
+        "src": "/JS/(.*)",
+        "dest": "/JS/$1"
       },
       {
         "src": "/images/(.*)",
-        "dest": "/public/img/$1"
+        "dest": "/images/$1"
+      },
+      {
+        "src": "/scss/(.*)",
+        "dest": "/scss/$1"
       }
     ]
   }
+  
