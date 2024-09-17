@@ -3,7 +3,18 @@
       {
         "src": "/(.*)",
         "dest": "/pages/$1"
+      },
+      {
+        "src": "/js/(.*)", 
+        "dest": "/public/js/$1"
+      },
+      {
+        "src": "/scss/(.*)",  
+        "dest": "/public/scss/$1"
+      },
+      {
+        "src": "/images/(.*)",
+        "dest": "/public/img/$1"
       }
     ]
   }
-  
