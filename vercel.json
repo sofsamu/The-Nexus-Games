@@ -1,4 +1,10 @@
 {
-    "public": "true"
+    "rewrites": [
+      {
+        "source": "/",
+        "destination": "/pages/index.html"
+      }
+    ]
   }
+  
   
