@@ -1,5 +1,5 @@
 // Lista de palabras clave para filtrar contenido no deseado
-const prohibitedKeywords = ['hentai', 'adult', '18+', 'explicit', 'sex','sexual', 'erotic', 'ecchi','nude'];
+const prohibitedKeywords = ['hentai', 'adult', '18+', 'explicit', 'sex','sexual', 'erotic', 'ecchi','nude', 'engaging', 'girl'];
 
 // Función para obtener los datos de juegos de la API de RawG
 async function fetchGames(url) {
