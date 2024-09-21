@@ -1,228 +1,143 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>The Nexus Game</title>
-    <link rel="shortcut icon" href="/images/logo.png" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/scss/custom.css" />
-  </head>
 
-  <body>
-    <header class="p-3 text-bg-dark">
-      <div class="container">
-        <div
-          class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
-        >
-          <a
-            href="https://thenexusgames.vercel.app/"
-            class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
-          >
-            <img
-              class="img-fluid me-5"
-              src="/images/logo-white.png"
-              style="max-width: 75px"
-              alt="Logo"
-            />
-          </a>
-          <ul
-            class="nav nav-underline col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
-          >
-            <li class="nav-item">
-              <a href="index.html" class="nav-link px-2 text-white">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a href="results.html" class="nav-link px-2 text-white"
-                >Descubre</a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="about.html" class="nav-link px-2 text-white" id="about"
-                >About</a
-              >
-            </li>
-          </ul>
-          <form
-            class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 position-relative"
-          >
-            <input
-              type="search"
-              id="search-input"
-              class="form-control form-control-dark rounded-pill custom-search"
-              placeholder="Busca tus juegos..."
-              aria-label="Search"
-            />
-            <div
-              id="instant-search-results"
-              class="dropdown-menu position-absolute w-100"
-              style="display: none"
-            >
-              <!-- Resultados de búsqueda instantánea se agregarán aquí -->
-            </div>
-          </form>
-          <div class="text-end">
-            <button
-              type="button"
-              class="btn custom-btn-outline me-2 rounded-pill"
-            >
-              Login
-            </button>
-            <button type="button" class="btn custom-btn rounded-pill">
-              Sign Up
-            </button>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Nexus Game</title>
+  <link rel="shortcut icon" href="/images/logo.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/scss/custom.css" />
+</head>
+
+<body>
+  <header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="https://thenexusgames.vercel.app/"
+          class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <img class="img-fluid me-5" src="/images/logo-white.png" style="max-width: 75px" alt="Logo" />
+        </a>
+        <ul class="nav nav-underline col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link px-2 text-white">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a href="results.html" class="nav-link px-2 text-white">Descubre</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link px-2 text-white" id="about">About</a>
+          </li>
+        </ul>
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 position-relative">
+          <input type="search" id="search-input" class="form-control form-control-dark rounded-pill custom-search"
+            placeholder="Busca tus juegos..." aria-label="Search" />
+          <div id="instant-search-results" class="dropdown-menu position-absolute w-100" style="display: none">
+            <!-- Resultados de búsqueda instantánea se agregarán aquí -->
           </div>
+        </form>
+        <div class="text-end">
+          <button type="button" class="btn custom-btn-outline me-2 rounded-pill">
+            Login
+          </button>
+          <button type="button" class="btn custom-btn rounded-pill">
+            Sign Up
+          </button>
         </div>
       </div>
-    </header>
-    <div class="container mt-5">
-      <div class="row mb-3 d-flex justify-content-center">
-        <div class="col-auto">
-          <label for="sort-select" class="form-label">Ordenar por:</label>
-          <select id="sort-select" class="form-select">
-            <option value="relevance" selected>Más Relevante</option>
-            <option value="name">Nombre (A-Z)</option>
-            <option value="-name">Nombre (Z-A)</option>
-            <option value="released">Fecha de Lanzamiento (Más Antiguo)</option>
-            <option value="-released">Fecha de Lanzamiento (Más Nuevo)</option>
-          </select>
-        </div>
-      </div>
-
-      <div id="full-search-results" class="row"></div>
-
-      <nav aria-label="Page navigation" class="mt-4">
-        <ul id="pagination" class="pagination justify-content-center"></ul>
-      </nav>
     </div>
-  </body>
-  <div class="container">
-    <footer
-      class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
-    >
+  </header>
+  <main><div class="container mt-5">
+    <div class="row mb-3 d-flex justify-content-center">
+      <div class="col-auto">
+        <label for="sort-select" class="form-label">Ordenar por:</label>
+        <select id="sort-select" class="form-select">
+          <option value="relevance" selected>Más Relevante</option>
+          <option value="name">Nombre (A-Z)</option>
+          <option value="-name">Nombre (Z-A)</option>
+          <option value="released">Fecha de Lanzamiento (Más Antiguo)</option>
+          <option value="-released">Fecha de Lanzamiento (Más Nuevo)</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="full-search-results" class="row"></div>
+
+    <nav aria-label="Page navigation" class="mt-4">
+      <ul id="pagination" class="pagination justify-content-center"></ul>
+    </nav>
+  </div></main>
+</body>
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center flex-nowrap">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100"
+        zoomAndPan="magnify" viewBox="0 0 375 356.250003" height="75" preserveAspectRatio="xMidYMid meet" version="1.0">
+        <defs>
+          <clipPath id="28b4fff98b">
+            <path
+              d="M 58.152344 40.6875 L 317.105469 40.6875 L 317.105469 331.078125 L 58.152344 331.078125 Z M 58.152344 40.6875 "
+              clip-rule="nonzero" />
+          </clipPath>
+          <clipPath id="211d49e1bf">
+            <path d="M 0.394531 222 L 374.605469 222 L 374.605469 340 L 0.394531 340 Z M 0.394531 222 "
+              clip-rule="nonzero" />
+          </clipPath>
+          <clipPath id="ba96ab4f7d">
+            <path d="M 0.394531 7 L 374.605469 7 L 374.605469 125 L 0.394531 125 Z M 0.394531 7 " clip-rule="nonzero" />
+          </clipPath>
+        </defs>
+        <g clip-path="url(#28b4fff98b)">
+          <path fill="#000000"
+            d="M 159.070312 45.203125 L 178.222656 40.6875 L 178.222656 331.054688 L 107.316406 281.878906 L 107.316406 77.03125 L 77.339844 84.089844 L 77.339844 240.808594 L 58.195312 250.695312 L 58.195312 68.96875 L 126.460938 52.882812 L 126.460938 271.886719 L 159.070312 294.503906 Z M 317.066406 135.46875 L 317.066406 68.96875 L 197.9375 40.894531 L 197.9375 330.433594 L 215.792969 318.046875 L 315.78125 248.691406 L 317.066406 247.796875 L 317.066406 177.964844 L 239.574219 177.964844 L 239.574219 197.070312 L 297.921875 197.070312 L 297.921875 237.8125 L 217.082031 293.882812 L 217.082031 65.042969 L 297.917969 84.089844 L 297.917969 135.46875 Z M 317.066406 135.46875 "
+            fill-opacity="1" fill-rule="nonzero" />
+        </g>
+        <g clip-path="url(#211d49e1bf)">
+          <path fill="#000000"
+            d="M 96.46875 292.570312 C 84.246094 283.082031 83.113281 281.347656 73.09375 270.457031 C 66.625 263.429688 59.402344 251.945312 54.785156 243.285156 C 50.976562 236.140625 48.9375 229.859375 45.589844 222.105469 L 0.65625 222.078125 L 0.554688 227.546875 C 40.136719 232.386719 27.808594 230.21875 44.820312 258.511719 C 51.921875 270.316406 63.789062 285.519531 73.933594 294.6875 C 82.347656 302.292969 89.714844 308.046875 100.507812 314.765625 C 165.9375 355.503906 252.597656 344.222656 306.019531 289.949219 C 309.128906 286.789062 311.808594 283.683594 314.859375 280.121094 C 352.363281 236.339844 325.195312 232.148438 374.492188 227.6875 L 374.503906 222.160156 L 329.964844 222.164062 C 328.121094 223.582031 326.300781 230.273438 325.207031 232.75 C 308.472656 270.59375 279.171875 299.46875 239.644531 313.957031 C 190.652344 331.914062 136.007812 323.273438 96.46875 292.570312 Z M 96.46875 292.570312 "
+            fill-opacity="1" fill-rule="evenodd" />
+        </g>
+        <g clip-path="url(#ba96ab4f7d)">
+          <path fill="#000000"
+            d="M 0.496094 119.023438 L 0.503906 124.574219 L 45.75 124.570312 C 53.777344 96.988281 74.542969 70.695312 96.28125 53.972656 C 152.128906 11.007812 234.347656 13.464844 286.539062 60.5 C 305.585938 77.667969 321.316406 98.425781 329.195312 124.390625 L 374.449219 124.398438 L 374.292969 118.855469 C 336.726562 114.269531 346.011719 116.1875 330.191406 88.003906 C 324.746094 78.308594 313.570312 64.367188 305.765625 56.445312 C 296.75 47.296875 285.429688 38.800781 274.445312 31.796875 C 231.085938 4.152344 172.601562 0 124.84375 19.554688 C 90.578125 33.582031 63.472656 57.195312 44.550781 88.554688 C 29.003906 114.320312 38.375 116.039062 0.496094 119.023438 Z M 0.496094 119.023438 "
+            fill-opacity="1" fill-rule="evenodd" />
+        </g>
+      </svg>
       <div class="col-md-4 d-flex align-items-center flex-nowrap">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          width="100"
-          zoomAndPan="magnify"
-          viewBox="0 0 375 356.250003"
-          height="75"
-          preserveAspectRatio="xMidYMid meet"
-          version="1.0"
-        >
-          <defs>
-            <clipPath id="28b4fff98b">
-              <path
-                d="M 58.152344 40.6875 L 317.105469 40.6875 L 317.105469 331.078125 L 58.152344 331.078125 Z M 58.152344 40.6875 "
-                clip-rule="nonzero"
-              />
-            </clipPath>
-            <clipPath id="211d49e1bf">
-              <path
-                d="M 0.394531 222 L 374.605469 222 L 374.605469 340 L 0.394531 340 Z M 0.394531 222 "
-                clip-rule="nonzero"
-              />
-            </clipPath>
-            <clipPath id="ba96ab4f7d">
-              <path
-                d="M 0.394531 7 L 374.605469 7 L 374.605469 125 L 0.394531 125 Z M 0.394531 7 "
-                clip-rule="nonzero"
-              />
-            </clipPath>
-          </defs>
-          <g clip-path="url(#28b4fff98b)">
-            <path
-              fill="#000000"
-              d="M 159.070312 45.203125 L 178.222656 40.6875 L 178.222656 331.054688 L 107.316406 281.878906 L 107.316406 77.03125 L 77.339844 84.089844 L 77.339844 240.808594 L 58.195312 250.695312 L 58.195312 68.96875 L 126.460938 52.882812 L 126.460938 271.886719 L 159.070312 294.503906 Z M 317.066406 135.46875 L 317.066406 68.96875 L 197.9375 40.894531 L 197.9375 330.433594 L 215.792969 318.046875 L 315.78125 248.691406 L 317.066406 247.796875 L 317.066406 177.964844 L 239.574219 177.964844 L 239.574219 197.070312 L 297.921875 197.070312 L 297.921875 237.8125 L 217.082031 293.882812 L 217.082031 65.042969 L 297.917969 84.089844 L 297.917969 135.46875 Z M 317.066406 135.46875 "
-              fill-opacity="1"
-              fill-rule="nonzero"
-            />
-          </g>
-          <g clip-path="url(#211d49e1bf)">
-            <path
-              fill="#000000"
-              d="M 96.46875 292.570312 C 84.246094 283.082031 83.113281 281.347656 73.09375 270.457031 C 66.625 263.429688 59.402344 251.945312 54.785156 243.285156 C 50.976562 236.140625 48.9375 229.859375 45.589844 222.105469 L 0.65625 222.078125 L 0.554688 227.546875 C 40.136719 232.386719 27.808594 230.21875 44.820312 258.511719 C 51.921875 270.316406 63.789062 285.519531 73.933594 294.6875 C 82.347656 302.292969 89.714844 308.046875 100.507812 314.765625 C 165.9375 355.503906 252.597656 344.222656 306.019531 289.949219 C 309.128906 286.789062 311.808594 283.683594 314.859375 280.121094 C 352.363281 236.339844 325.195312 232.148438 374.492188 227.6875 L 374.503906 222.160156 L 329.964844 222.164062 C 328.121094 223.582031 326.300781 230.273438 325.207031 232.75 C 308.472656 270.59375 279.171875 299.46875 239.644531 313.957031 C 190.652344 331.914062 136.007812 323.273438 96.46875 292.570312 Z M 96.46875 292.570312 "
-              fill-opacity="1"
-              fill-rule="evenodd"
-            />
-          </g>
-          <g clip-path="url(#ba96ab4f7d)">
-            <path
-              fill="#000000"
-              d="M 0.496094 119.023438 L 0.503906 124.574219 L 45.75 124.570312 C 53.777344 96.988281 74.542969 70.695312 96.28125 53.972656 C 152.128906 11.007812 234.347656 13.464844 286.539062 60.5 C 305.585938 77.667969 321.316406 98.425781 329.195312 124.390625 L 374.449219 124.398438 L 374.292969 118.855469 C 336.726562 114.269531 346.011719 116.1875 330.191406 88.003906 C 324.746094 78.308594 313.570312 64.367188 305.765625 56.445312 C 296.75 47.296875 285.429688 38.800781 274.445312 31.796875 C 231.085938 4.152344 172.601562 0 124.84375 19.554688 C 90.578125 33.582031 63.472656 57.195312 44.550781 88.554688 C 29.003906 114.320312 38.375 116.039062 0.496094 119.023438 Z M 0.496094 119.023438 "
-              fill-opacity="1"
-              fill-rule="evenodd"
-            />
-          </g>
-        </svg>
-        <div class="col-md-4 d-flex align-items-center flex-nowrap">
-          <p class="mb-0 text-body-secondary me-2" style="white-space: nowrap">
-            Realizado por
-          </p>
-          <a
-            target="_blank"
-            href="https://samuelgarcia.dev"
-            class="text-body-none lh-1 d-flex align-items-center icon-link icon-link-hover"
-            style="color: #fff; text-decoration: none"
-          >
-            <button
-              class="btn custom-btn rounded-pill px-3 d-flex align-items-center justify-content-center"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-arrow-right-short"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
-                /></svg
-              >SofSamu
-            </button></a
-          >
-        </div>
-      </div>
-      <div class="col-md-4 d-flex align-items-center">
-        <p class="mb-3 mb-md-0 text-body-secondary m-2">
-          Visita el proyecto en GitHub.
+        <p class="mb-0 text-body-secondary me-2" style="white-space: nowrap">
+          Realizado por
         </p>
-        <a
-              href="https://github.com/sofsamu/The-Nexus-Games"
-              target="_blank"
-              class="text-body-secondary lh-1"
-              style="display: flex; align-items: center"
-            >
-              
-            <button
-            class="btn custom-btn rounded-pill px-3 d-flex align-items-center justify-content-center"
-          ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="25"
-                height="25"
-                fill="#fff"
-                class="bi bi-github"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
-                />
-              </svg></button></a>
+        <a target="_blank" href="https://samuelgarcia.dev"
+          class="text-body-none lh-1 d-flex align-items-center icon-link icon-link-hover"
+          style="color: #fff; text-decoration: none">
+          <button class="btn custom-btn rounded-pill px-3 d-flex align-items-center justify-content-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
+            </svg>SofSamu
+          </button></a>
       </div>
-    </footer>
-  </div>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"
-  ></script>
-  <script src="/JS/main.js" type="module"></script>
+    </div>
+    <div class="col-md-4 d-flex align-items-center">
+      <p class="mb-3 mb-md-0 text-body-secondary m-2">
+        Visita el proyecto en GitHub.
+      </p>
+      <a href="https://github.com/sofsamu/The-Nexus-Games" target="_blank" class="text-body-secondary lh-1"
+        style="display: flex; align-items: center">
+
+        <button class="btn custom-btn rounded-pill px-3 d-flex align-items-center justify-content-center"><svg
+            xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#fff" class="bi bi-github"
+            viewBox="0 0 16 16">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+          </svg></button></a>
+    </div>
+  </footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/JS/main.js" type="module"></script>
+
 </html>
