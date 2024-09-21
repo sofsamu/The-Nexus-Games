@@ -329,3 +329,8 @@
 .gallery-container .img-fluid {
   max-height: 200px; /* Ajusta la altura máxima si es necesario */
 }
+.top-btn{
+  position: fixed;
+  left: 85%;
+  background-color: #08D9D6;
+}
