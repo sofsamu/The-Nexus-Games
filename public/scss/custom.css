@@ -1,157 +1,120 @@
 .custom-btn {
-  background-color: #FF2E63;
+  background-color: #1ABC9C;
   border: none;
-  border-radius: 12px;
+  border-radius: 50px;
   color: #ffffff;
   padding: 0.5rem 1rem;
   font-size: 1rem;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
-  box-shadow: 0px 4px 10px rgba(255, 46, 99, 0.3); /* Sombra inicial */
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.custom-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #34495E;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  border-radius: 50px;
+  clip-path: ellipse(300% 75% at 0% 50%);
 }
 
 .custom-btn:hover {
-  background-color: #D12D56;
-  color: #fffafb;
-  border-radius: 20px;
-  transform: translateY(-3px);
-  box-shadow: 0px 8px 15px rgba(209, 45, 86, 0.4);
+  color: #ffffff;
+  transform: scale(1.05);
 }
 
-.custom-btn:focus, .custom-btn:focus-visible {
-  background-color: #FF2E63; /* Mantiene el color de fondo */
+.custom-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.custom-btn:focus,
+.custom-btn:focus-visible {
+  background-color: #1ABC9C;
   outline: none;
-  box-shadow: 0px 0px 0px 3px rgba(255, 46, 99, 0.5);
 }
 
 .custom-btn:active {
-  background-color: #D12D56; /* Mantiene el color de fondo */
+  background-color: #1ABC9C;
   transform: translateY(0);
-  box-shadow: 0px 4px 10px rgba(255, 46, 99, 0.3); /* Sombra regular cuando el botón está activo */
-  transition: none; /* Evita que el color cambie durante la transición */
-}
-
-.custom-btn:focus, .custom-btn:active, .custom-btn.show, .custom-btn:active:focus {
-  background-color: #FF2E63 !important; /* Asegura que el color de fondo no desaparezca */
-  border-color: transparent !important; /* Elimina el borde predeterminado */
-  box-shadow: 0px 4px 10px rgba(255, 46, 99, 0.3);
 }
 
 .custom-btn-outline {
-  color: #08D9D6;
-  border: 2px solid #08D9D6;
+  color: #1ABC9C;
+  border: 2px solid #1ABC9C;
   background-color: transparent;
-  border-radius: 12px;
-  transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
-  box-shadow: 0px 4px 10px rgba(8, 217, 214, 0.3); /* Sombra suave */
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.custom-btn-outline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1ABC9C;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  border-radius: 50px;
+  clip-path: ellipse(300% 75% at 0% 50%);
 }
 
 .custom-btn-outline:hover {
-  background-color: #08D9D6; /* Color de fondo en hover */
-  color: #ffffff; /* Color del texto en hover */
-  border-radius: 20px; /* Cambio de radio en hover */
-  transform: translateY(-3px); /* Elevación al pasar el cursor */
-  box-shadow: 0px 8px 15px rgba(8, 217, 214, 0.5); /* Sombra más profunda */
-}
-
-.custom-btn-outline:focus {
-  outline: none;
-  box-shadow: 0px 0px 0px 3px rgba(8, 217, 214, 0.3); /* Sombra en focus */
-}
-
-.custom-btn-outline:active {
-  background-color: #08D9D6;
   color: #ffffff;
-  box-shadow: none; /* Sin sombra al hacer clic */
-  transform: translateY(0); /* Vuelve a su posición original al hacer clic */
+  transform: scale(1.05);
 }
 
-.custom-btn2 {
-  background-color: #FF2E63;
-  border: none;
-  border-radius: 12px;
-  color: #ffffff;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
-  box-shadow: 0px 4px 10px rgba(255, 46, 99, 0.3);
+.custom-btn-outline:hover::before {
+  transform: scaleX(1);
 }
-
-.custom-btn2:hover {
-  background-color: #08D9D6;
-  color: #fffafb;
-  border-radius: 20px;
-  box-shadow: 0px 4px 10px rgba(8, 217, 214, 0.3);
-}
-
-.custom-btn2:focus, .custom-btn:focus-visible {
-  background-color: #08D9D6; /* Mantiene el color de fondo */
-  outline: none;
-  box-shadow: 0px 4px 10px rgba(8, 217, 214, 0.3);
-}
-
-.custom-btn2:active {
-  background-color: #10adab; /* Mantiene el color de fondo */
-  transform: translateY(0);
-  box-shadow: 0px 4px 10px rgba(255, 46, 99, 0.3);
-  transition: none; /* Evita que el color cambie durante la transición */
-}
-
-.custom-btn2:focus, .custom-btn2:active, .custom-btn2.show, .custom-btn2:active:focus {
-  background-color: #10adab !important; /* Asegura que el color de fondo no desaparezca */
-  border-color: transparent !important; /* Elimina el borde predeterminado */
-  box-shadow: 0px 4px 10px rgba(8, 217, 214, 0.3);
-  color: #fffafb;
-}
-
-
-
 .custom-search {
   transition: all 0.3s ease;
 }
 
 .custom-search:focus {
   border-color: #FF2E63;
-  box-shadow: 0 0 8px rgba(147, 51, 164, 0.8);
+  box-shadow: 0 0 8px rgba(255, 46, 99, 0.8);
   outline: none;
 }
+
 .custom-search::-webkit-search-cancel-button {
   -webkit-appearance: none;
   height: 20px;
   width: 20px;
   background: none;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%239333A4" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>');
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23FF2E63" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>');
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
   border-radius: 50%;
 }
 
-#instant-search-results ul {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-}
-
-#instant-search-results li {
-  padding: 10px;
-  cursor: pointer;
-  border-bottom: 1px solid #ddd; 
-}
-
-#instant-search-results li:hover {
-  background-color: #f0f0f0; 
-  color: #333;
-}
 .card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 0.75rem; /* Bordes redondeados */
-  overflow: hidden; /* Asegura que el contenido no se desborde */
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-fixed {
-  width: 100%; /* Asegura que la tarjeta ocupe el ancho completo de la columna */
+  width: 100%;
   border: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .card-img-fixed {
@@ -164,7 +127,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 1.25rem;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 
 .card-title {
@@ -180,42 +143,44 @@
 
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .card-link {
-  text-decoration: none; /* Elimina el subrayado del enlace */
-  color: inherit; /* Hereda el color del texto de la tarjeta */
+  text-decoration: none;
+  color: inherit;
 }
 
-
-/* Estilos para la paginación */
 .pagination {
-  justify-content: center; /* Centra la paginación */
-  margin-top: 1rem; /* Espacio superior */
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .page-item.active .page-link {
-  background-color: #007bff; /* Color de fondo activo */
-  border-color: #007bff; /* Color del borde activo */
-  color: white; /* Color del texto activo */
+  background-color: #FF2E63;
+  border-color: #FF2E63;
+  color: white;
 }
 
 .page-item .page-link {
-  border-radius: 0.25rem; /* Bordes redondeados */
+  border-radius: 0.25rem;
 }
 
 .page-item a.page-link {
-  padding: 0.5rem 0.75rem; /* Tamaño del botón */
-  font-size: 1rem; /* Tamaño de la fuente */
-  color: #007bff; /* Color del texto */
-  transition: background-color 0.2s ease, color 0.2s ease; /* Transición suave */
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  color: #1ABC9C;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .page-item a.page-link:hover {
-  background-color: #e9ecef; /* Color de fondo al pasar el ratón */
-  color: #0056b3; /* Color del texto al pasar el ratón */
+  background-color: #e9ecef;
+  color: #1ABC9C;
+}
+
+.page-item.disabled .page-link {
+  color: #6c757d;
+  background-color: #f8f9fa;
 }
 
 #loader {
@@ -223,114 +188,122 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000; /* Asegúrate de que esté sobre otros elementos */
+  z-index: 1000;
 }
-/* Personalizar los estilos de Bootstrap pagination */
+
 .pagination {
   display: flex;
-  justify-content: center; /* Centrar la paginación */
-  padding: 0; /* Eliminar padding */
-  margin: 20px 0; /* Espaciado vertical */
+  justify-content: center;
+  padding: 0;
+  margin: 20px 0;
 }
 
 .pagination .page-item {
-  margin: 0 2px; /* Espaciado entre los elementos */
+  margin: 0 2px;
 }
 
 .pagination .page-item.active .page-link {
-  background-color: #FF2E63; /* Color para el estado activo */
-  border: none; /* Sin borde */
+  background-color: #FF2E63;
+  border: none;
 }
 
 .pagination a.page-link {
-  color: #ffffff; /* Color del texto */
-  background-color: #04b0ade6; /* Fondo para los botones */
-  border: none; /* Sin borde */
-  border-radius: 5px; /* Bordes redondeados */
-  padding: 8px 12px; /* Espaciado interno */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
-  text-decoration: none; /* Sin subrayado */
+  color: #ffffff;
+  background-color: #1ABC9C;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none;
 }
 
 .pagination a.page-link:hover {
-  background-color: #08D9D6; /* Color de fondo al pasar el cursor */
-  color: #ffffff; /* Color del texto al pasar el cursor */
+  background-color: #FF2E63;
+  color: #ffffff;
 }
 
 .pagination .page-item.disabled .page-link {
-  color: #6c757d; /* Color del texto deshabilitado */
-  background-color: #f8f9fa; /* Fondo claro para el texto deshabilitado */
+  color: #6c757d;
+  background-color: #f8f9fa;
 }
 
 .pagination .page-item.disabled .page-link:hover {
-  background-color: #f8f9fa; /* Mantener el mismo fondo al pasar el cursor */
-  color: #6c757d; /* Mantener el mismo color del texto al pasar el cursor */
+  background-color: #f8f9fa;
+  color: #6c757d;
 }
 
 .game-details-container {
-  text-align: center;
-  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
 }
 
-.game-details-container img.img-fluid {
-  max-width: 100%;
-  height: auto;
+.game-details-left {
+  flex: 1;
+  padding-right: 20px;
 }
 
-.game-details-container h2 {
-  font-size: 2rem;
-  font-weight: 600;
+.game-details-right {
+  flex: 2;
+  padding-left: 20px;
 }
 
-.game-details-container p {
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.game-details-container .gallery {
+.gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  gap: 10px;
 }
 
-.game-details-container .gallery img.img-thumbnail {
-  width: 200px;
+.gallery img {
+  width: calc(33.333% - 10px);
   height: auto;
-  border-radius: 0.5rem;
-  margin: 5px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Estilos para la galería de imágenes */
-.gallery-container {
-  margin-top: 1.5rem;
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
-
-.gallery-container h3 {
-  margin-bottom: 1rem;
-}
-
-.gallery-container .row {
-  margin-left: -0.5rem;
-  margin-right: -0.5rem;
-}
-
-.gallery-container .col-4 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.gallery-container .img-fluid {
-  width: 100%;
-  height: auto;
-  border-radius: 0.25rem;
-  object-fit: cover; /* Asegura que la imagen se ajuste bien en su contenedor */
-}
-
-.gallery-container .img-fluid {
-  max-height: 200px; /* Ajusta la altura máxima si es necesario */
-}
-.top-btn{
+.top-btn {
   position: fixed;
-  left: 85%;
-  background-color: #08D9D6;
+  right: 5%;
+  bottom: 5%;
+  background-color: #1ABC9C;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(26, 188, 156, 0.3);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.top-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.top-btn:hover {
+  background-color: #34495E;
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 15px rgba(52, 73, 94, 0.4);
+}
+
+.top-btn:focus {
+  outline: none;
+  background-color: #FF2E63;
+  box-shadow: 0px 0px 0px 3px rgba(255, 46, 99, 0.3);
+}
+
+.top-btn:active {
+  background-color: #FF2E63;
+  transform: translateY(0);
+  box-shadow: 0px 4px 10px rgba(255, 46, 99, 0.3);
 }
