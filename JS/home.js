@@ -43,10 +43,11 @@ function displayResults(games, container) {
         cardLink.style.textDecoration = 'none'; // Opcional: eliminar subrayado del enlace
         cardLink.style.color = 'inherit'; // Opcional: heredar el color del texto de la tarjeta
     
+        // Añadimos el overlay dentro del HTML generado
         cardLink.innerHTML = `
             <div class="card card-fixed" data-game-id="${game.id}">
                 <img src="${game.background_image}" class="card-img-top card-img-fixed" alt="${game.name}">
-                <div class="card-body card-body-fixed">
+                <div class="card-overlay"> <!-- Overlay con degradado -->
                     <h5 class="card-title">${game.name}</h5>
                     <p class="card-text">${game.released}</p>
                 </div>

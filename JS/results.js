@@ -49,41 +49,45 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function displayResults(results) {
         resultsContainer.innerHTML = ''; // Limpiar resultados anteriores
-
+    
         if (results.length === 0) {
             resultsContainer.innerHTML = '<p>No se encontraron resultados.</p>';
             return;
         }
-
+    
         const row = document.createElement('div');
         row.classList.add('row');
         results.forEach(result => {
             const col = document.createElement('div');
             col.classList.add('col-12', 'col-md-6', 'col-lg-4', 'col-xl-3', 'mb-4'); // Ajustar la clase para el tamaño de las tarjetas
-
+    
             const cardLink = document.createElement('a'); // Envolver la tarjeta en un enlace
             cardLink.href = `game-details.html?gameId=${result.id}`;
             cardLink.classList.add('card-link');
             cardLink.style.textDecoration = 'none'; // Opcional: eliminar subrayado del enlace
             cardLink.style.color = 'inherit'; // Opcional: heredar el color del texto de la tarjeta
-
+    
             const card = document.createElement('div');
             card.classList.add('card', 'h-100');
             card.innerHTML = `
-                <img src="${result.background_image}" class="card-img-top card-img-fixed" alt="${result.name}">
-                <div class="card-body card-body-fixed">
-                    <h5 class="card-title">${result.name}</h5>
-                    <p class="card-text">${result.genres.map(genre => genre.name).join(', ')}</p>
+                <div class="card-img-container">
+                    <img src="${result.background_image}" class="card-img-top" alt="${result.name}">
+                    <div class="card-overlay"> <!-- Overlay con degradado -->
+                        <h5 class="card-title">${result.name}</h5>
+                        <p class="card-text">${result.genres.map(genre => genre.name).join(', ')}</p>
+                    </div>
                 </div>
             `;
-
+    
             cardLink.appendChild(card);
             col.appendChild(cardLink);
             row.appendChild(col);
         });
-
+    
         resultsContainer.appendChild(row);
     }
+    
+    
 
     function displayPagination(currentPage) {
         paginationContainer.innerHTML = ''; // Limpiar paginación anterior
