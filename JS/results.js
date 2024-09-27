@@ -6,16 +6,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const resultsContainer = document.getElementById('full-search-results');
     const paginationContainer = document.getElementById('pagination');
-    const sortSelect = document.getElementById('sort-select'); // Agregado para ordenar
-    const pageSize = 16; // Número de resultados por página
+    const sortSelect = document.getElementById('sort-select');
+    const pageSize = 16; 
     let currentPage = 1;
     let totalPages = 0;
-    let sortOrder = 'relevance'; // Orden predeterminado
+    let sortOrder = 'relevance';
 
-    // Establece el orden de clasificación cuando cambia la selección
+
     sortSelect.addEventListener('change', (e) => {
         sortOrder = e.target.value;
-        loadResults(); // Recarga los resultados con el nuevo orden
+        loadResults(); 
     });
 
     if (query) {
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     async function loadResults(page = 1) {
         try {
-            // Construir la URL de solicitud con paginación y ordenación
+
             const url = `${apiUrl}?key=${apiKey}&page=${page}&page_size=${pageSize}&search=${encodeURIComponent(query)}&ordering=${sortOrder}`;
             const response = await fetch(url);
             
@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
             
             const data = await response.json();
-            totalPages = Math.ceil(data.count / pageSize); // Calcular el número total de páginas
-            console.log(data); // Verifica los datos en la consola
+            totalPages = Math.ceil(data.count / pageSize); 
+            console.log(data);
             
             // Mostrar los resultados
             displayResults(data.results);
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function displayResults(results) {
-        resultsContainer.innerHTML = ''; // Limpiar resultados anteriores
+        resultsContainer.innerHTML = '';
     
         if (results.length === 0) {
             resultsContainer.innerHTML = '<p>No se encontraron resultados.</p>';
@@ -57,13 +57,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     
         results.forEach(result => {
             const col = document.createElement('div');
-            col.classList.add('col-md-3'); // Cambiar tamaño de columna para tarjetas
+            col.classList.add('col-md-3'); 
     
             const cardLink = document.createElement('a');
             cardLink.href = `game-details.html?gameId=${result.id}`;
             cardLink.classList.add('card-link');
-            cardLink.style.textDecoration = 'none'; // Eliminar subrayado del enlace
-            cardLink.style.color = 'inherit'; // Heredar el color del texto de la tarjeta
+            cardLink.style.textDecoration = 'none'; 
+            cardLink.style.color = 'inherit'; 
     
             // Obtener las plataformas del juego y mostrar solo las más populares
             const maxPlatformsToShow = 3;

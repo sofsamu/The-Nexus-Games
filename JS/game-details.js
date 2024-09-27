@@ -27,95 +27,70 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function displayGameDetails(game) {
-        gameDetails.innerHTML = '';
-
-        // Contenedor principal
-        const container = document.createElement('div');
-        container.classList.add('d-flex', 'align-items-start', 'mb-4');
-
-        // Imagen del juego
-        const img = document.createElement('img');
-        img.src = game.background_image || 'https://via.placeholder.com/150';
-        img.alt = game.name;
-        img.style.width = '50%'; // Tamaño más pequeño
-        img.style.height = 'auto';
-        img.classList.add('me-4'); // Margen a la derecha
-
-        // Información del juego
-        const infoContainer = document.createElement('div');
-        infoContainer.classList.add('flex-grow-1');
-
-        const sectionContainer = document.createElement('section');
-        const sectionContainer2 = document.createElement('section');
-
-        const title = document.createElement('h2');
-        title.textContent = game.name;
-        title.classList.add('mb-3');
-
-        const description = document.createElement('p');
-        description.textContent = game.description_raw || 'No hay descripción disponible.';
-        description.classList.add('mb-3');
-
-        // Mostrar plataformas con logos
-const platforms = document.createElement('p');
-const platformLogos = game.platforms.map(p => {
-    const platformName = p.platform.name.toLowerCase().replace(/\s+/g, '-'); // Normaliza el nombre de la plataforma
-    const logoUrl = `/images/logos/${platformName}-logo.png`; // Ajusta la ruta del logo
-    return `
-        <span class="platform ${platformName}">
-            <img src="${logoUrl}" alt="${p.platform.name} logo" class="platform-logo" />
-            ${p.platform.name}
-        </span>`;
-}).join(' ');
-platforms.innerHTML = `Plataformas: ${platformLogos || 'No disponible'}`;
-platforms.classList.add('mb-3');
-infoContainer.appendChild(platforms);
-
-
-        const releaseYear = document.createElement('p');
-        releaseYear.textContent = `Año de lanzamiento: ${new Date(game.released).getFullYear()}`;
-        releaseYear.classList.add('mb-3');
-
-        infoContainer.appendChild(sectionContainer);
-        infoContainer.appendChild(sectionContainer2);
-        sectionContainer.appendChild(title);
-        sectionContainer.appendChild(description);
-        sectionContainer2.appendChild(platforms);
-        sectionContainer2.appendChild(releaseYear);
-
-        
-
+        const gameDetails = document.getElementById('game-details');
+        const gameImage = document.getElementById('game-image');
+        const gameTitle = document.getElementById('game-title');
+        const gameDescription = document.getElementById('game-description');
+        const gameReleaseDate = document.getElementById('game-release-date').querySelector('span');
+        const gameGenres = document.getElementById('game-genres').querySelector('span');
+        const gamePlatforms = document.getElementById('game-platforms').querySelector('span');
+    
+        // Actualizar la imagen del juego
+        gameImage.src = game.background_image || 'https://via.placeholder.com/150';
+        gameImage.alt = game.name;
+    
+        // Actualizar el título del juego
+        gameTitle.textContent = game.name;
+    
+        // Actualizar la descripción del juego
+        gameDescription.textContent = game.description_raw || 'No hay descripción disponible.';
+    
+        // Actualizar la fecha de lanzamiento
+        gameReleaseDate.textContent = new Date(game.released).toLocaleDateString();
+    
+        // Actualizar los géneros
+        gameGenres.textContent = game.genres.map(genre => genre.name).join(', ');
+    
+        // Actualizar las plataformas con logos
+        const platformLogos = game.platforms.map(p => {
+            const platformName = p.platform.name.toLowerCase().replace(/\s+/g, '-'); // Normaliza el nombre de la plataforma
+            const logoUrl = `/images/logos/${platformName}-logo.png`; // Ajusta la ruta del logo
+            return `
+                <span class="platform ${platformName}">
+                    <img src="${logoUrl}" alt="${p.platform.name} logo" class="platform-logo" />
+                    ${p.platform.name}
+                </span>`;
+        }).join(' ');
+        gamePlatforms.innerHTML = platformLogos || 'No disponible';
+    
         // Agregar galería de imágenes si está disponible
         if (game.short_screenshots && game.short_screenshots.length > 0) {
             const galleryContainer = document.createElement('div');
-            galleryContainer.classList.add('mt-4');
-
+            galleryContainer.classList.add('gallery-container');
+    
             const galleryTitle = document.createElement('h3');
             galleryTitle.textContent = 'Galería de Imágenes';
+            galleryTitle.classList.add('gallery-title');
             galleryContainer.appendChild(galleryTitle);
-
+    
             const galleryRow = document.createElement('div');
-            galleryRow.classList.add('row', 'g-2');
+            galleryRow.classList.add('gallery-row');
             game.short_screenshots.forEach(screenshot => {
                 const col = document.createElement('div');
-                col.classList.add('col-4');
-
+                col.classList.add('gallery-col');
+    
                 const img = document.createElement('img');
                 img.src = screenshot.image;
                 img.alt = 'Captura de pantalla';
-             img.classList.add('img-fluid', 'rounded');
-                img.style.objectFit = 'cover'; // Ajustar imagen
-
+                img.classList.add('game-screenshot');
+    
                 col.appendChild(img);
                 galleryRow.appendChild(col);
             });
-
+    
             galleryContainer.appendChild(galleryRow);
-            infoContainer.appendChild(galleryContainer);
+            gameDetails.appendChild(galleryContainer);
         }
-
-        container.appendChild(img);
-        container.appendChild(infoContainer);
-        gameDetails.appendChild(container);
     }
+    
 });

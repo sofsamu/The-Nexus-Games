@@ -19,3 +19,30 @@
     cursor: pointer;
     border-radius: 50%;
 }
+#instant-search-results {
+    position: absolute;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.753); 
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); 
+    padding: 1rem; 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    color: aliceblue;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+#instant-search-results ul li {
+    padding: 0.5rem;
+    border-radius: 20px;
+    transition: background 0.3s, transform 0.3s; 
+}
+
+#instant-search-results ul li:hover {
+    background: rgba(244, 209, 255, 0.2); 
+    transform: scale(1.05); 
+    cursor: pointer; 
+    border-radius: 20px;
+}
+form {
+    position: relative; /* Esto permite que los elementos con position: absolute se posicionen respecto a este contenedor */
+}
