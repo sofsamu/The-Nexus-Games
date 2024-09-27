@@ -37,13 +37,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         const img = document.createElement('img');
         img.src = game.background_image || 'https://via.placeholder.com/150';
         img.alt = game.name;
-        img.style.width = '200px'; // Tamaño más pequeño
+        img.style.width = '50%'; // Tamaño más pequeño
         img.style.height = 'auto';
         img.classList.add('me-4'); // Margen a la derecha
 
         // Información del juego
         const infoContainer = document.createElement('div');
         infoContainer.classList.add('flex-grow-1');
+
+        const sectionContainer = document.createElement('section');
+        const sectionContainer2 = document.createElement('section');
 
         const title = document.createElement('h2');
         title.textContent = game.name;
@@ -53,18 +56,34 @@ document.addEventListener('DOMContentLoaded', async () => {
         description.textContent = game.description_raw || 'No hay descripción disponible.';
         description.classList.add('mb-3');
 
-        const platforms = document.createElement('p');
-        platforms.textContent = `Plataformas: ${game.platforms.map(p => p.platform.name).join(', ')}`;
-        platforms.classList.add('mb-3');
+        // Mostrar plataformas con logos
+const platforms = document.createElement('p');
+const platformLogos = game.platforms.map(p => {
+    const platformName = p.platform.name.toLowerCase().replace(/\s+/g, '-'); // Normaliza el nombre de la plataforma
+    const logoUrl = `/images/logos/${platformName}-logo.png`; // Ajusta la ruta del logo
+    return `
+        <span class="platform ${platformName}">
+            <img src="${logoUrl}" alt="${p.platform.name} logo" class="platform-logo" />
+            ${p.platform.name}
+        </span>`;
+}).join(' ');
+platforms.innerHTML = `Plataformas: ${platformLogos || 'No disponible'}`;
+platforms.classList.add('mb-3');
+infoContainer.appendChild(platforms);
+
 
         const releaseYear = document.createElement('p');
         releaseYear.textContent = `Año de lanzamiento: ${new Date(game.released).getFullYear()}`;
         releaseYear.classList.add('mb-3');
 
-        infoContainer.appendChild(title);
-        infoContainer.appendChild(description);
-        infoContainer.appendChild(platforms);
-        infoContainer.appendChild(releaseYear);
+        infoContainer.appendChild(sectionContainer);
+        infoContainer.appendChild(sectionContainer2);
+        sectionContainer.appendChild(title);
+        sectionContainer.appendChild(description);
+        sectionContainer2.appendChild(platforms);
+        sectionContainer2.appendChild(releaseYear);
+
+        
 
         // Agregar galería de imágenes si está disponible
         if (game.short_screenshots && game.short_screenshots.length > 0) {

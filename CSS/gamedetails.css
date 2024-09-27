@@ -1,0 +1,35 @@
+.game-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  
+  .game-details-left {
+    flex: 1;
+    padding-right: 20px;
+  }
+  
+  .game-details-right {
+    flex: 2;
+    padding-left: 20px;
+  }
+  
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .gallery img {
+    width: calc(33.333% - 10px);
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  

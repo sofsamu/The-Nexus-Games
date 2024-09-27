@@ -1,0 +1,79 @@
+.pagination {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .page-item.active .page-link {
+    background-color: #FF2E63;
+    border-color: #FF2E63;
+    color: white;
+  }
+  
+  .page-item .page-link {
+    border-radius: 0.25rem;
+  }
+  
+  .page-item a.page-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    color: #1ABC9C;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .page-item a.page-link:hover {
+    background-color: #e9ecef;
+    color: #1ABC9C;
+  }
+  
+  .page-item.disabled .page-link {
+    color: #6c757d;
+    background-color: #f8f9fa;
+  }
+  
+  #loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  .pagination .page-item {
+    margin: 0 2px;
+  }
+  
+  .pagination .page-item.active .page-link {
+    background-color: #FF2E63;
+    border: none;
+  }
+  
+  .pagination a.page-link {
+    color: #ffffff;
+    background-color: #1ABC9C;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .pagination a.page-link:hover {
+    background-color: #FF2E63;
+    color: #ffffff;
+  }
+  
+  .pagination .page-item.disabled .page-link {
+    color: #6c757d;
+    background-color: #f8f9fa;
+  }
+  
+  .pagination .page-item.disabled .page-link:hover {
+    background-color: #f8f9fa;
+    color: #6c757d;
+  }

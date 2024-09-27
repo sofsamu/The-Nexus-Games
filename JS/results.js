@@ -55,39 +55,45 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
     
-        const row = document.createElement('div');
-        row.classList.add('row');
         results.forEach(result => {
             const col = document.createElement('div');
-            col.classList.add('col-12', 'col-md-6', 'col-lg-4', 'col-xl-3', 'mb-4'); // Ajustar la clase para el tamaño de las tarjetas
+            col.classList.add('col-md-3'); // Cambiar tamaño de columna para tarjetas
     
-            const cardLink = document.createElement('a'); // Envolver la tarjeta en un enlace
+            const cardLink = document.createElement('a');
             cardLink.href = `game-details.html?gameId=${result.id}`;
             cardLink.classList.add('card-link');
-            cardLink.style.textDecoration = 'none'; // Opcional: eliminar subrayado del enlace
-            cardLink.style.color = 'inherit'; // Opcional: heredar el color del texto de la tarjeta
+            cardLink.style.textDecoration = 'none'; // Eliminar subrayado del enlace
+            cardLink.style.color = 'inherit'; // Heredar el color del texto de la tarjeta
     
-            const card = document.createElement('div');
-            card.classList.add('card', 'h-100');
-            card.innerHTML = `
-                <div class="card-img-container">
-                    <img src="${result.background_image}" class="card-img-top" alt="${result.name}">
+            // Obtener las plataformas del juego y mostrar solo las más populares
+            const maxPlatformsToShow = 3;
+            const platforms = result.platforms ? result.platforms.slice(0, maxPlatformsToShow).map(p => {
+                const platformName = p.platform.name.toLowerCase().replace(/\s+/g, '-'); // Normaliza el nombre de la plataforma
+                const logoUrl = `/images/logos/${platformName}-logo.png`; // Ajusta la ruta del logo
+                return `
+                    <span class="platform ${platformName}">
+                        <img src="${logoUrl}" alt="${p.platform.name} logo" class="platform-logo" />
+                        ${p.platform.name}
+                    </span>`;
+            }).join(' ') : 'No disponible';
+
+            const additionalPlatforms = result.platforms.length > maxPlatformsToShow ? `+${result.platforms.length - maxPlatformsToShow}` : '';
+    
+            // Añadir el overlay dentro del HTML generado
+            cardLink.innerHTML = `
+                <div class="card card-fixed mb-5" data-game-id="${result.id}">
+                    <img src="${result.background_image}" class="card-img-top card-img-fixed" alt="${result.name}">
                     <div class="card-overlay"> <!-- Overlay con degradado -->
                         <h5 class="card-title">${result.name}</h5>
-                        <p class="card-text">${result.genres.map(genre => genre.name).join(', ')}</p>
+                        <p class="card-text">${platforms} ${additionalPlatforms}</p>
                     </div>
                 </div>
             `;
     
-            cardLink.appendChild(card);
             col.appendChild(cardLink);
-            row.appendChild(col);
+            resultsContainer.appendChild(col);
         });
-    
-        resultsContainer.appendChild(row);
     }
-    
-    
 
     function displayPagination(currentPage) {
         paginationContainer.innerHTML = ''; // Limpiar paginación anterior

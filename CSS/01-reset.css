@@ -1,0 +1,27 @@
+body {
+    background: url('/images/my-gradient (1).png') no-repeat center center fixed;
+    /* Cambia por tu imagen de fondo */
+    background-size: cover;
+    backdrop-filter: blur(50px);
+  }
+  
+  header {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  main section {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.11);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.5px);
+    -webkit-backdrop-filter: blur(6.5px);
+    color: aliceblue;
+    margin: 0 0 1.5rem 0;
+  }
+  label{
+    color: aliceblue;
+  }

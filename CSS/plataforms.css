@@ -1,0 +1,148 @@
+.platform {
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin: 5px;
+    background-color: #107C10;
+}
+.platform-logo{
+    height: 1.5rem;
+    width: 1.5rem;
+}
+.platform-list {
+    margin-top: 10px;
+}
+
+/* Estilos específicos para cada plataforma */
+.platform.android {
+    background-color: #A4C639;
+}
+.platform.ios {
+    background-color: #888888;
+}
+.platform.game-boy {
+    background-color: #A8B400;
+}
+
+.platform.game-boy-advance {
+    background-color: #9600b4;
+}
+
+.platform.game-boy-color {
+    background-color: #FF6F20;
+}
+
+.platform.gamecube {
+    background-color: #5C6BC0;
+}
+.platform.pc {
+    background-color: #2a2a2a;
+}
+.platform.linux {
+    background-color: #FFCC00;
+}
+
+.platform.macos {
+    background-color: #A3A3A3;
+}
+
+.platform.nintendo-3ds {
+    background-color: #D0006B;
+}
+
+.platform.nintendo-64 {
+    background-color: #A8B500;
+}
+
+.platform.nintendo-switch {
+    background-color: #E60012;
+}
+
+.platform.nes {
+    background-color: #EAE1C0;
+}
+
+.platform.nintendo-ds {
+    background-color: #FF7F00; /* Color para Nintendo DS */
+}
+
+.platform.playstation{
+    background-color: #df0024;
+}
+
+.platform.playstation-2 {
+    background-color: #DAAA00;
+}
+
+.platform.playstation-3 {
+    background-color: #000000;
+}
+
+.platform.playstation-4 {
+    background-color: #003087;
+}
+
+.platform.playstation-5 {
+    background-color: #006fcd;
+}
+
+.platform.psp {
+    background-color: #DF0024;
+}
+.platform.ps-vita{
+    background-color: #002147;
+}
+.platform.sega-dreamcast {
+    background-color: #0099CC;
+}
+
+.platform.sega-genesis {
+    background-color: #3A3A3A;
+}
+
+.platform.wii {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.platform.wii-u {
+    background-color: #009ac7; 
+}
+
+.platform.xbox {
+    background-color: #4E5B31; 
+}
+
+.platform.xbox-360 {
+    background-color: #16b316;
+}
+
+.platform.xbox-one {
+    background-color: #107C10;
+}
+
+.platform.atari {
+    background-color: #D6882B;
+}
+
+.platform.blackberry {
+    background-color: #4B5C80;
+}
+
+.platform.nokia {
+    background-color: #5B7FBD;
+}
+
+.platform.pokemon {
+    background-color: #FFCE00;
+}
+
+.platform.gamegear {
+    background-color: #A844A1;
+}
+
+.platform.web{
+    background-color: #FF5722;;
+}
