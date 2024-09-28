@@ -1,3 +1,42 @@
+.custom-nav {
+    --bs-nav-link-padding-x: 1rem;
+    --bs-nav-link-padding-y: 0.5rem;
+    --bs-nav-link-color: var(--bs-link-color);
+    --bs-nav-link-hover-color: var(--bs-link-hover-color);
+    --bs-nav-link-disabled-color: var(--bs-secondary-color);
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.custom-nav li {
+    border-radius: 11px;
+    transition: all 0.5s ease;
+}
+
+.custom-nav li:hover,
+.custom-nav li.active { 
+    color: #ffffff;
+    font-weight: bold;
+    background: #1ABC9C;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+    box-shadow: 0 0 5px #1ABC9C, 0 0 20px #1ABC9C, 0 0 50px #1ABC9C,
+        0 0 100px #1ABC9C;
+}
+
+.nav-link.active {
+    font-weight: bold;
+    background: #1ABC9C;
+    color: #ffffff !important; 
+    border-radius: 11px;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+    box-shadow: 0 0 5px #1ABC9C, 0 0 20px #1ABC9C, 0 0 50px #1ABC9C,
+                0 0 100px #1ABC9C;
+  }
+  
+
 .custom-search {
     transition: all 0.3s ease;
 }
@@ -19,14 +58,15 @@
     cursor: pointer;
     border-radius: 50%;
 }
+
 #instant-search-results {
     position: absolute;
     backdrop-filter: blur(10px);
-    background: rgba(0, 0, 0, 0.753); 
+    background: rgba(0, 0, 0, 0.753);
     border-radius: 10px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); 
-    padding: 1rem; 
-    border: 1px solid rgba(255, 255, 255, 0.2); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: aliceblue;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
 }
@@ -34,15 +74,17 @@
 #instant-search-results ul li {
     padding: 0.5rem;
     border-radius: 20px;
-    transition: background 0.3s, transform 0.3s; 
+    transition: background 0.3s, transform 0.3s;
 }
 
 #instant-search-results ul li:hover {
-    background: rgba(244, 209, 255, 0.2); 
-    transform: scale(1.05); 
-    cursor: pointer; 
+    background: rgba(244, 209, 255, 0.2);
+    transform: scale(1.05);
+    cursor: pointer;
     border-radius: 20px;
 }
+
 form {
-    position: relative; /* Esto permite que los elementos con position: absolute se posicionen respecto a este contenedor */
+    position: relative;
+    /* Esto permite que los elementos con position: absolute se posicionen respecto a este contenedor */
 }

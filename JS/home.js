@@ -1,4 +1,4 @@
-const prohibitedKeywords = ['hentai', 'adult', '18+', 'explicit', 'sex', 'sexual', 'erotic', 'ecchi', 'nude', 'engaging', 'girl'];
+const prohibitedKeywords = ['hentai', 'adult', '18+', 'explicit', 'sex', 'sexual', 'erotic', 'ecchi', 'nude', 'engaging', 'girl', 'porn', 'pornstar', 'massage'];
 
 async function fetchGames(url) {
     try {
